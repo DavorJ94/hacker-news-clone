@@ -1,21 +1,30 @@
 import "./App.css";
-import Header from "./Header";
-import Story from "./Story";
+import Header from "./Components/Header";
+import Stories from "./pages/Stories";
 import "./styles/header.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <table className="story-container">
-          <tbody>
-            <Story />
-            <Story />
-            <Story />
-            <Story />
-          </tbody>
-        </table>
+        <Switch>
+          <Route exact path="/">
+            <Stories path={"/news"} />
+          </Route>
+          <Route path="/news">
+            <Stories path={"/news"} />
+          </Route>
+          <Route path="/newest">
+            <Stories path={"/newest"} />
+          </Route>
+          <Route path="/ask">
+            <Stories path={"/ask"} />
+          </Route>
+          <Route path="/show">
+            <Stories path="/show" />
+          </Route>
+        </Switch>
       </Router>
     </>
   );

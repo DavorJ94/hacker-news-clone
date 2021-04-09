@@ -1,0 +1,2 @@
+Odraditi posebnu komponentu koja ce preuzimati sve price zavisno od linka na kom smo trenutno.
+Nakon toga praviti komentare.
