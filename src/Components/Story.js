@@ -1,7 +1,6 @@
 import "../styles/story.css";
 
 export default function Story({ story, order }) {
-  console.log(story);
   const {
     id,
     title,
@@ -17,7 +16,7 @@ export default function Story({ story, order }) {
     <>
       <tr className="athing" id={id}>
         <td className="title">
-          <span className="rank">{order + 1}.</span>
+          {order ? <span className="rank">{order + 1}.</span> : null}
         </td>
         <td className="votelinks">
           <center>

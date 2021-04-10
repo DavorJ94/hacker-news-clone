@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Story from "../Components/Story";
 import "../styles/stories.css";
-
-const BASE_URL = "https://node-hnapi.herokuapp.com";
+import { BASE_URL } from "../utils/baseUrl";
 
 export default function Stories({ path }) {
   let [stories, setStories] = useState([]);
@@ -13,6 +12,7 @@ export default function Stories({ path }) {
       setStories(() => [...response]);
     })();
   }, [path]);
+
   return (
     <>
       <table className="stories-container">

@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./Components/Header";
 import Stories from "./pages/Stories";
+import Comments from "./pages/Comments";
 import "./styles/header.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Router>
         <Header />
+
         <Switch>
           <Route exact path="/">
             <Stories path={"/news"} />
@@ -23,6 +25,9 @@ function App() {
           </Route>
           <Route path="/show">
             <Stories path="/show" />
+          </Route>
+          <Route path="/item">
+            <Comments />
           </Route>
         </Switch>
       </Router>
