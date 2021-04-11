@@ -9,6 +9,7 @@
   background-color: rgb(246, 246, 239);
   min-width: 796px;
   width: 85%;
+  max-width: 950px;
   margin: 0 auto;
   height: auto;
 }
@@ -60,4 +61,15 @@
   color: #000000;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header-table {
+    min-width: auto;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .pagetop {
+    font-size: 8pt;
+  }
 }

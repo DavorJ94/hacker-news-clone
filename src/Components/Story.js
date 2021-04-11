@@ -1,6 +1,12 @@
+import React, { useState } from "react";
 import "../styles/story.css";
 
-export default function Story({ story, order }) {
+export default function Story({
+  story,
+  order,
+  isFavorited,
+  updateRenderFavorite,
+}) {
   const {
     id,
     title,
@@ -12,11 +18,26 @@ export default function Story({ story, order }) {
     type,
     comments_count,
   } = story;
+
+  const [isFavoritedCurrent, setIsFavoritedCurrent] = useState(isFavorited);
+
+  const handleFavoriteStories = () => {
+    if (isFavoritedCurrent) {
+      localStorage.removeItem(id);
+      setIsFavoritedCurrent((prevState) => !prevState);
+      updateRenderFavorite && updateRenderFavorite();
+    } else {
+      localStorage.setItem(id, JSON.stringify(story));
+      setIsFavoritedCurrent((prevState) => !prevState);
+      updateRenderFavorite && updateRenderFavorite();
+    }
+  };
+
   return (
     <>
       <tr className="athing" id={id}>
         <td className="title">
-          {order ? <span className="rank">{order + 1}.</span> : null}
+          {order ? <span className="rank">{order}.</span> : null}
         </td>
         <td className="votelinks">
           <center>
@@ -55,13 +76,12 @@ export default function Story({ story, order }) {
             <a href="/#">{time_ago}</a>
           </span>{" "}
           <span id={`unv_${id}`}></span> | <a href="/#">hide</a> |{" "}
-          <a
-            href="https://hn.algolia.com/?query=Changing%20the%20efficiency%20of%20knowledge%20operations%20will%20change%20the%20shape%20of%20society&amp;type=story&amp;dateRange=all&amp;sort=byDate&amp;storyText=false&amp;prefix&amp;page=0"
-            className="hnpast"
-          >
-            past
-          </a>{" "}
-          | <a href={`item?id=${id}`}>{comments_count}&nbsp;comments</a>{" "}
+          <span className="hnpast">past</span> |{" "}
+          <a href={`item?id=${id}`}>{comments_count}&nbsp;comments</a> |{" "}
+          <span className="add-favorite" onClick={handleFavoriteStories}>
+            {isFavoritedCurrent ? <span>♥</span> : <span>♡</span>}
+            {isFavoritedCurrent ? " remove favorite" : " add favorite"}
+          </span>
         </td>
       </tr>
     </>

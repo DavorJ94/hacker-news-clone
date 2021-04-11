@@ -4,12 +4,6 @@
   color: #828282;
 }
 
-.athing .comtr {
-  display: table-row;
-  vertical-align: inherit;
-  border-color: inherit;
-}
-
 .table-comment {
   border-top-width: 0px;
   border-right-width: 0px;
@@ -20,7 +14,6 @@
 .tbody-comment {
   display: table-row-group;
   vertical-align: middle;
-  border-color: inherit;
 }
 
 .votelinks-comment {
@@ -38,6 +31,7 @@ center {
   border: 0px;
   margin: 3px 2px 6px;
   background: url("../images/grayarrow.gif") no-repeat;
+  cursor: pointer;
 }
 
 .comment-user-row {
@@ -56,17 +50,13 @@ center {
 }
 
 .comment {
-  max-width: 1215px;
   overflow: hidden;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 9pt;
 }
 
-@media only screen and (min-width: 900px) and (max-width: 1079px) {
-  .comment {
-    max-width: 810px;
-    overflow: hidden;
-  }
+.hnuser {
+  cursor: pointer;
 }
 
 .commtext {
@@ -79,10 +69,20 @@ u {
   text-decoration: underline;
 }
 
-.ind {
-  width: 40px;
-}
-
 .reply {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .stories-container {
+    min-width: auto;
+    margin: 0 auto;
+    width: 90%;
+    padding-left: 0em;
+  }
+
+  .comment {
+    word-break: break-word;
+    font-size: 8pt;
+  }
 }

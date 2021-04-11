@@ -1,4 +1,4 @@
-Srediti komentare ceo markup.
-Staviti da aktivni tab ima belu boju.
-Kreirati state za favorited.
-Napraviti da bude koliko toliko responsive.
+Srediti komentare ceo markup. +
+Staviti da aktivni tab ima belu boju. +
+Kreirati state za favorited i srediti favorited. +
+Napraviti da bude koliko toliko responsive. +

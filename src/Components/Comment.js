@@ -2,32 +2,30 @@ import React from "react";
 import "../styles/comment.css";
 
 export default function Comment({ comment }) {
-  const { user, time_ago, content, level } = comment;
+  const { user, time_ago, content, level, id } = comment;
   return (
     <>
-      <tr className="athing comtr" id="26760895">
+      <tr className="athing-comment comtr" id={id}>
         <td className="td-comment">
           <table className="table-comment">
             <tbody className="tbody-comment">
               <tr>
-                <td className="ind" style={{ width: `${level * 40}px` }}></td>
+                <td className="ind" style={{ minWidth: `${level * 3}vw` }}></td>
                 <td className="votelinks-comment">
                   <center>
-                    <a id="up_26760895" href="/#">
+                    <span id={`up_${id}`}>
                       <div className="votearrow-comment" title="upvote"></div>
-                    </a>
+                    </span>
                   </center>
                 </td>
                 <td className="default">
                   <div className="comment-user-row">
                     <span className="comhead-comment">
-                      <a href="user?id=_Microft" className="hnuser">
-                        {user}{" "}
-                      </a>
+                      <span className="hnuser">{user} </span>
                       <span className="age">
                         <span>{time_ago}</span>
                       </span>{" "}
-                      <span id="unv_26760895"></span>
+                      <span id={`unv_${id}`}></span>
                       <span className="par"></span>
                       <span className="togg">[–]</span>
                       <span className="storyon"></span>
@@ -41,11 +39,11 @@ export default function Comment({ comment }) {
                     ></span>
                     <div className="reply">
                       <p>
-                        <font size="1">
+                        <font>
                           <u>reply</u>
                         </font>
                       </p>
-                    </div>{" "}
+                    </div>
                   </div>
                 </td>
               </tr>

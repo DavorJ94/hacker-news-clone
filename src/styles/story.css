@@ -72,3 +72,23 @@
 .sitebit a:hover {
   text-decoration: underline;
 }
+
+.add-favorite {
+  cursor: pointer;
+}
+
+.add-favorite span {
+  font-size: 11px;
+}
+
+.add-favorite:hover {
+  text-decoration: underline;
+}
+
+.hnpast {
+  cursor: pointer;
+}
+
+.hnpast:hover {
+  text-decoration: underline;
+}
